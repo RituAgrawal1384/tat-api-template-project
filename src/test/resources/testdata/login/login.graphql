@@ -1,0 +1,9 @@
+{
+ login(loginPayload:{
+  userName: "${USER_NAME}",
+  password: "${PASSWORD}"
+  }) {
+     ciamToken
+     token
+	}
+}

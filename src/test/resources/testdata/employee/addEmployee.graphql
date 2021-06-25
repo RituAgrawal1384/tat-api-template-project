@@ -1,0 +1,113 @@
+mutation
+{
+    addEmployee (addEmployeePayload:
+    {
+        givenName: "${EMP_GIVEN_NAME}",
+        familyName: "${EMP_FAMILY_NAME}",
+        nickname: "No nickname",
+        category: "Executive",
+        nationality: "Thai",
+        startDate: "2015-08-28",
+        gender: F,
+        dateOfBirth: "1978-01-25",
+        passport: "3 1012 999 04 345",
+        foreignWorker: NO,
+        maritalStatus: MARRIED,
+        companyEmail: "${EMP_EMAIL}",
+        occupationalClass: "C2",
+        address: {
+            address1: "7 Street St",
+            address2: "",
+            address3: "",
+            city: "City",
+            postCode: "27898",
+            region: "Region",
+            country: "Thailand"
+        },
+        dependants: [
+            {
+                givenName: "Seven",
+                familyName: "Dependant",
+                relationshipToEmployee: SPOUSE,
+                maritalStatus: SINGLE,
+                gender: M,
+                passport: "3 1012 675 04 381",
+                dateOfBirth: "1978-10-25",
+                nationality: "Thai",
+                address: {
+                    address1: "1 Street St",
+                    address2: "",
+                    address3: "",
+                    city: "City",
+                    postCode: "12345",
+                    region: "Region",
+                    country: "Thailand"
+                }
+            },
+            {
+                givenName: "Seven",
+                familyName: "Dependant",
+                relationshipToEmployee: CHILD,
+                maritalStatus: SINGLE,
+                gender: M,
+                passport: "3 1012 675 04 381",
+                dateOfBirth: "2005-08-10",
+                nationality: "Thai",
+                address: {
+                    address1: "1 Street St",
+                    address2: "",
+                    address3: "",
+                    city: "City",
+                    postCode: "12345",
+                    region: "Region",
+                    country: "Thailand"
+                }
+            }
+        ]
+    })
+    {
+        id
+        givenName
+        familyName
+        category
+        nationality
+        startDate
+        gender
+        dateOfBirth
+        nickname
+        passport
+        foreignWorker
+        maritalStatus
+        companyEmail
+        occupationalClass
+        active
+        isArchived
+        address {
+            address1
+            address2
+            address3
+            city
+            postCode
+            region
+            country
+        }
+        dependants {
+            givenName
+            familyName
+            relationshipToEmployee
+            gender
+            passport
+            dateOfBirth
+            nationality
+            address {
+                address1
+                address2
+                address3
+                city
+                postCode
+                region
+                country
+            }
+        }
+    }
+}
