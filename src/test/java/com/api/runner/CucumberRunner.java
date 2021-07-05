@@ -1,14 +1,15 @@
 package com.api.runner;
 
-import com.automation.tat.config.Configvariable;
-import com.automation.tat.config.TapBeansLoad;
-import com.automation.tat.filehandling.FileReaderUtil;
-import com.automation.tat.reporting.TapReporting;
-import com.automation.tat.selenium.SeleniumBase;
+import com.automation.platform.config.Configvariable;
+import com.automation.platform.config.TapBeansLoad;
+import com.automation.platform.filehandling.FileReaderUtil;
+import com.automation.platform.reporting.TapReporting;
+import com.automation.platform.selenium.SeleniumBase;
 import com.github.mkolisnyk.cucumber.runner.ExtendedCucumberOptions;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -17,7 +18,7 @@ import org.testng.annotations.BeforeSuite;
 
 import java.util.TimeZone;
 
-@ComponentScan(basePackages = {"com.automation.tat"})
+@ComponentScan(basePackages = {"com.automation.platform"})
 @Configuration
 @ExtendedCucumberOptions(
         jsonReport = "reports/cucumber/cucumber.json"
@@ -32,7 +33,7 @@ import java.util.TimeZone;
 @CucumberOptions(
         monochrome = true,
         features = "classpath:features",
-        glue = {"com/automation/tat/tapsteps"},
+        glue = {"com/automation/platform/tapsteps"},
         tags = {"@api_test", "~@ignore"},
         plugin = {"pretty",
                 "html:reports/cucumber/cucumber-html",
@@ -43,7 +44,7 @@ import java.util.TimeZone;
 
 public class CucumberRunner extends AbstractTestNGCucumberTests {
 
-    private static final Logger LOGGER = Logger.getLogger(CucumberRunner.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(CucumberRunner.class);
 
     public static ConfigurableApplicationContext context;
     private Configvariable configvariable;

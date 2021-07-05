@@ -14,7 +14,7 @@ Feature: Testing apis Graphql
       | NODE            | login                               |
     Given I create connection for api service
     And I set endpoint url as "<endpoint url>"
-#    And I set api header key "content-type" and value "application/json"
+    And I set api header key "content-type" and value "application/json"
     And I set api headers as below
       | content-type          | application/json |
     And I set graphql request body from file "/testdata/login/login.graphql"
